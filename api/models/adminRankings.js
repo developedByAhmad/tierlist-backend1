@@ -18,4 +18,4 @@ const adminRanksSchema = mongoose.Schema({
 },
     { timestamps: true })
 
-module.exports = mongoose.model('AdminRank', adminRanksSchema);
+module.exports = mongoose.model('AdminRanking', adminRanksSchema);

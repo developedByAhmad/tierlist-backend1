@@ -6,11 +6,11 @@ const authSchema = mongoose.Schema({
     },
     firstName: {
         type: String,
-        required: true
+        // required: true
     },
     lastName: {
         type: String,
-        required: true
+        // required: true
     },
     username: {
         type: String,
@@ -26,7 +26,7 @@ const authSchema = mongoose.Schema({
     },
     role:{
         type:String,
-        required:true
+        // required:true
     }
 
 

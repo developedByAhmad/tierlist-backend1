@@ -47,7 +47,8 @@ module.exports.signup = async (req, res, next) => {
                                 res.status(201).json({
                                     message: "signup successful",
                                     user: authObj,
-                                    token: token
+                                    token: token,
+                                    id:id
                                 })
                             })
                             .catch(err => {
@@ -86,7 +87,8 @@ module.exports.login = async (req, res, next) => {
                             res.status(200).json({
                                 message: "login successful",
                                 token: loginToken,
-                                user: auth
+                                user: auth,
+                                id:id
                             })
                         }
                         else {

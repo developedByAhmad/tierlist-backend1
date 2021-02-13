@@ -10,8 +10,8 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 // const jsonwebtoken = require('jsonwebtoken');
 
-// mongoose.connect('mongodb://localhost:27017/tierListDB', { useNewUrlParser: true } , { useUnifiedTopology: true });
-mongoose.connect('mongodb+srv://user1:jackechan123@cluster0.u3ytg.mongodb.net/tierListDB?retryWrites=true&w=majority', { useNewUrlParser: true } , { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/tierListDB', { useNewUrlParser: true } , { useUnifiedTopology: true });
+// mongoose.connect('mongodb+srv://user1:jackechan123@cluster0.u3ytg.mongodb.net/tierListDB?retryWrites=true&w=majority', { useNewUrlParser: true } , { useUnifiedTopology: true });
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -28,8 +28,12 @@ const gamesRoute = require('./api/routes/games');
 const ranksRoute = require('./api/routes/ranks');
 const authRoute = require('./api/routes/auth');
 const adminRoute = require('./api/routes/admin');
-const userRankingRoute = require('./api/routes/userRankings');
 const adminRankingRoute = require('./api/routes/adminRankings');
+const userGamesRoute = require('./api/routes/userGames');
+const userRanksRoute = require('./api/routes/userRanks');
+const userRankingRoute = require('./api/routes/userRankings');
+
+
 
 
 
@@ -37,8 +41,11 @@ app.use('/games',gamesRoute);
 app.use('/rank', ranksRoute);
 app.use('/auth',authRoute);
 app.use('/admin',adminRoute);
-app.use('/userRanking', userRankingRoute);
 app.use('/adminRanking', adminRankingRoute);
+app.use('/userGames',userGamesRoute);
+app.use('/userRanks', userRanksRoute);
+app.use('/userRanking', userRankingRoute);
+
 app.use('/checkPalindrome/:name', (req, res, next) => {
 	const name = req.params.name;
 	var nameCheck = [];

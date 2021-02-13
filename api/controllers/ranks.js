@@ -21,9 +21,11 @@ module.exports.getAll = async (req, res, next) => {
 
 module.exports.add = async (req, res, next) => {
     const name = req.body.name;
+    const description = req.body.description;
     const rank = new Rank({
         _id: mongoose.Types.ObjectId(),
-        name: name
+        name: name,
+        description:description
     });
 
     rank.save()
@@ -76,11 +78,13 @@ module.exports.delete = async (req, res, next) => {
 module.exports.update = async (req, res, next) => {
     const id = req.params.id;
     const name = req.body.name;
+    const description = req.body.description;
     Rank.findOne({ _id: id })
         .exec()
         .then(result => {
             if (result) {
                 result.name = name;
+                result.description = description;
                 result.save()
                     .then(resultObj => {
                         res.status(201).json({

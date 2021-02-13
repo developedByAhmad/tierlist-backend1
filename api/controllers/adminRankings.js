@@ -80,6 +80,8 @@ module.exports.updateNew = async (req, res, next) => {
           if (eachGame._id == eachRank._id) {
             eachRank.games = eachGame.games;
           }
+          console.log(eachRank);
+          console.log(eachGame);
         }
       }
       ranklist.map(rank =>{
